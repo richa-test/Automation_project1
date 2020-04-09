@@ -1,7 +1,8 @@
-﻿ RepositoriesCollection.Add "C:\Users\Admin\Documents\Unified Functional Testing\Automation_proj1\Repositories\desktopFlightGUI_OR.tsr"
+﻿ 'RepositoriesCollection.Add "C:\Users\Admin\Documents\Unified Functional Testing\Automation_proj1\Repositories\desktopFlightGUI_OR.tsr"
+ RepositoriesCollection.Add "..\..\Repositories\desktopFlightGUI_OR.tsr"
  Dim flightDetailsofPlacedOrder
  Dim passengerName
-dtfileName="C:\Users\Admin\Documents\Unified Functional Testing\Automation_proj1\TestData\DesktopflightGUI_bookflight.xlsx"
+dtfileName="..\..\Test_data\DesktopflightGUI_bookflight.xlsx"
 sheetname="searchFlights"
 DataTable.AddSheet sheetname
 DataTable.Import dtfileName
@@ -26,9 +27,11 @@ For i = 1 To 2 Step 1
 
 Function loginMyFlight
 SystemUtil.Run "C:\Program Files (x86)\Micro Focus\Unified Functional Testing\samples\Flights Application\FlightsGUI.exe"
+wait 3
 WpfWindow("Micro Focus MyFlight Sample").WpfEdit("agentName").Set "john"
 WpfWindow("Micro Focus MyFlight Sample").WpfEdit("password").SetSecure "5e789d0a23932bdfda5a"
 print "****************loginMyFlight***********************"
+wait 3
 WpfWindow("Micro Focus MyFlight Sample").WpfButton("OK").Click	
 End Function
 
